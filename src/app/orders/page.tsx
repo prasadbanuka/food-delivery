@@ -23,6 +23,10 @@ export default function Orders() {
     };
 
     fetchOrders();
+    // Set interval to fetch orders every 2 minutes
+    const interval = setInterval(fetchOrders, 3000);
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
   }, []);
 
   return (
